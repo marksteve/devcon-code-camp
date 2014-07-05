@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Flask</title>
+  </head>
+  <body>
+  {% if session.user %}
+    <p>Hello, {{ session.user }}</p>
+    <p><a href="/logout">Logout</a></p>
+  {% else %}
+    <form action="{{ login_url }}" method="post">
+      <p>
+        <label>
+          User
+          <input type="text" name="user">
+        </label>
+      </p>
+      <p>
+        <label>
+          Password
+          <input type="password" name="password">
+        </label>
+      </p>
+      <p>
+        <button type="submit">Login</button>
+      </p>
+    </form>
+  {% endif %}
+  {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  </body>
+</html>
