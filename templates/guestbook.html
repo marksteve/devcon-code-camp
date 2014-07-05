@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title>Guestbook</title>
+</head>
+<body>
+  <h1>Guestbook</h1>
+  <ul>
+  {% for entry in entries %}
+    <li>
+      <h3>{{ entry.name }}</h3>
+      <p>{{ entry.message }}</p>
+    </li>
+  {% endfor %}
+  </ul>
+  <h2>Sign guestbook</h2>
+  <form action="{{ url_for('sign') }}" method="post">
+    <p>
+      <label>
+        Name <input type="text" name="name">
+      </label>
+    </p>
+    <p>
+      <label>
+        Message <textarea name="message" rows="5"></textarea>
+      </label>
+    </p>
+    <p>
+      <button type="submit">Sign</button>
+    </p>
+  </form>
+</body>
+</html>
