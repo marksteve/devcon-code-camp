@@ -12,7 +12,7 @@ def hello_with_name(name="world"):
 
 @app.route('/<int:post_id>')
 def posts(post_id):
-    return "Post: {!d}".format(post_id)
+    return "Post: {}".format(post_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
